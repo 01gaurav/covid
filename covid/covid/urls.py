@@ -19,6 +19,7 @@ from django.urls import path
 
 urlpatterns = [
     url(r'^$',include('a1.urls')),
-    url(r'^shopkeeper_sineup',include('a1.urls')),
+    url(r'^shopkeeper_signup/',include('a1.urls')),
+    url(r'^shopkeeper_login/',include('a1.urls')),
     # path('admin/', admin.site.urls),
 ]
