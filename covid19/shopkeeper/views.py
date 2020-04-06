@@ -6,14 +6,14 @@ def register(request):
     if request.method=='POST':
         first_name=request.POST['first_name']
         last_name=request.POST['last_name']
-        username=request.POST['username_name']
-        password1=request.POST['password1_name']
-        password2=request.POST['password2_name']
+        username=request.POST['username']
+        password1=request.POST['password1']
+        password2=request.POST['password2']
         email=request.POST['email']
 
         if password1==password2:
             if User.objects.filter(username=username).exists():
-                messages.info(request,'Usesrname Taken')
+                messages.info(request,'Usesrname Taken') 
                 return redirect('register')
             elif User.objects.filter(email=email).exists():
                 messages.info(request,'Email Taken')
@@ -27,7 +27,7 @@ def register(request):
             messages.info(request,'Password not matching')
             return redirect('register')
         return redirect('/')   
-    return render(request,'')             
+    return render(request,'shopkeeper/register.html')             
 
 
 def login(request):
@@ -44,7 +44,7 @@ def login(request):
             return redirect('login')    
 
     else:
-        return render(request,"")    
+        return render(request,"shopkeeper/login.html")    
 
 
 def logout(request):
